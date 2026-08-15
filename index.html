@@ -1452,6 +1452,35 @@
       }
 
 
+      /* Los productos de Zera Art usan
+         la imagen que "da vuelta"
+         (flip-wrap). Esas imágenes van
+         position:absolute y no pueden
+         definir la altura del cuadro
+         solas, así que a la altura
+         "auto" de arriba le devolvemos
+         una altura fija acá para que
+         no se aplaste a 0. */
+
+      .product-image.has-flip {
+
+        height:
+          420px;
+
+      }
+
+
+      .flip-wrap img {
+
+        height:
+          100%;
+
+        object-fit:
+          cover;
+
+      }
+
+
       section {
 
         padding:
@@ -2225,7 +2254,7 @@
 
             return (
               '<div class="product" onclick="openArtistModal(\'' + artist.id + '\', ' + index + ')">' +
-                '<div class="product-image">' +
+                '<div class="product-image' + (hasBack ? ' has-flip' : '') + '">' +
                   imageHtml +
                 '</div>' +
                 '<div class="product-info">' +
