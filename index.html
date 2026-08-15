@@ -1,0 +1,2506 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>ZERA — Streetwear</title>
+
+
+  <style>
+
+    /* ==============================
+       CONFIGURACIÓN GENERAL
+    ============================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: #080808;
+
+      color: white;
+
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+    /* ==============================
+       NAVBAR
+    ============================== */
+
+    header {
+
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      height: 75px;
+
+      z-index: 1000;
+
+      background:
+        rgba(8, 8, 8, 0.92);
+
+      backdrop-filter:
+        blur(12px);
+
+      border-bottom:
+        1px solid #222;
+
+    }
+
+
+    nav {
+
+      width: 100%;
+
+      max-width: 1200px;
+
+      height: 100%;
+
+      margin: auto;
+
+      padding:
+        0 25px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content:
+        space-between;
+
+    }
+
+
+    .logo {
+
+      color: white;
+
+      font-size: 28px;
+
+      font-weight: 900;
+
+      letter-spacing: 7px;
+
+    }
+
+
+    /* ==============================
+       LOGO + FLECHA ZERA ART
+
+       Al lado del logo hay una
+       flecha bien visible. Al
+       tocarla se despliega "ART"
+       debajo de "ZERA" y lleva
+       directo a la colección de
+       Turrobaby dentro de Zera Art.
+    ============================== */
+
+    .logo-wrap {
+
+      position:
+        relative;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        8px;
+
+    }
+
+
+    .logo-arrow {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      width:
+        26px;
+
+      height:
+        26px;
+
+      border-radius:
+        50%;
+
+      background:
+        white;
+
+      color:
+        black;
+
+      border:
+        none;
+
+      cursor:
+        pointer;
+
+      font-size:
+        13px;
+
+      line-height:
+        1;
+
+      transition:
+        0.3s;
+
+      animation:
+        arrowPulse
+        1.8s
+        ease-in-out
+        infinite;
+
+    }
+
+
+    .logo-arrow:hover {
+
+      background:
+        #bdbdbd;
+
+    }
+
+
+    .logo-arrow.open {
+
+      transform:
+        rotate(180deg);
+
+      animation:
+        none;
+
+    }
+
+
+    @keyframes arrowPulse {
+
+      0%, 100% {
+
+        box-shadow:
+          0 0 0 0 rgba(255,255,255,0.5);
+
+      }
+
+      50% {
+
+        box-shadow:
+          0 0 0 6px rgba(255,255,255,0);
+
+      }
+
+    }
+
+
+    .logo-dropdown {
+
+      position:
+        absolute;
+
+      top:
+        calc(100% + 10px);
+
+      left:
+        0;
+
+      display:
+        none;
+
+      flex-direction:
+        column;
+
+      align-items:
+        flex-start;
+
+      background:
+        rgba(8, 8, 8, 0.97);
+
+      border:
+        1px solid #333;
+
+      padding:
+        16px 20px;
+
+      min-width:
+        140px;
+
+    }
+
+
+    .logo-dropdown.open {
+
+      display:
+        flex;
+
+    }
+
+
+    .logo-dropdown-zera {
+
+      color:
+        #555;
+
+      font-size:
+        14px;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        4px;
+
+    }
+
+
+    .logo-dropdown a.logo-dropdown-art {
+
+      color:
+        white;
+
+      font-size:
+        22px;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        4px;
+
+      transition:
+        0.3s;
+
+    }
+
+
+    .logo-dropdown a.logo-dropdown-art:hover {
+
+      opacity:
+        0.6;
+
+    }
+
+
+    .menu {
+
+      display: flex;
+
+      gap: 30px;
+
+      list-style: none;
+
+    }
+
+
+    .menu a {
+
+      color: white;
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 2px;
+
+      text-transform:
+        uppercase;
+
+      transition:
+        0.3s;
+
+    }
+
+
+    .menu a:hover {
+
+      opacity: 0.5;
+
+    }
+
+
+
+    /* ==============================
+       HERO
+    ============================== */
+
+    .hero {
+
+      min-height:
+        100vh;
+
+      display: flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      text-align:
+        center;
+
+      padding:
+        100px 20px 50px;
+
+      background:
+
+        linear-gradient(
+
+          rgba(0,0,0,0.55),
+
+          rgba(0,0,0,0.9)
+
+        ),
+
+        url("remera-dientes.png");
+
+      background-size:
+        cover;
+
+      background-position:
+        center;
+
+    }
+
+
+    .hero-content {
+
+      max-width:
+        800px;
+
+    }
+
+
+    .hero h1 {
+
+      font-size:
+        clamp(70px, 15vw, 170px);
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        18px;
+
+      margin-bottom:
+        15px;
+
+    }
+
+
+    .hero p {
+
+      font-size:
+        14px;
+
+      letter-spacing:
+        6px;
+
+      text-transform:
+        uppercase;
+
+      color:
+        #d0d0d0;
+
+      margin-bottom:
+        40px;
+
+    }
+
+
+    .hero-button {
+
+      display:
+        inline-block;
+
+      padding:
+        16px 38px;
+
+      background:
+        white;
+
+      color:
+        black;
+
+      font-size:
+        12px;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
+
+      transition:
+        0.3s;
+
+    }
+
+
+    .hero-button:hover {
+
+      background:
+        #bdbdbd;
+
+      transform:
+        translateY(-3px);
+
+    }
+
+
+
+    /* ==============================
+       SECCIONES
+    ============================== */
+
+    section {
+
+      padding:
+        100px 25px;
+
+    }
+
+
+    .container {
+
+      max-width:
+        1200px;
+
+      margin:
+        auto;
+
+    }
+
+
+    .section-title {
+
+      text-align:
+        center;
+
+      font-size:
+        38px;
+
+      letter-spacing:
+        7px;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        60px;
+
+    }
+
+
+
+    /* ==============================
+       PRODUCTOS
+    ============================== */
+
+    .products {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        25px;
+
+    }
+
+
+    .product {
+
+      background:
+        #111;
+
+      border:
+        1px solid #222;
+
+      overflow:
+        hidden;
+
+      cursor:
+        pointer;
+
+      transition:
+        0.35s;
+
+    }
+
+
+    .product:hover {
+
+      transform:
+        translateY(-8px);
+
+      border-color:
+        #555;
+
+    }
+
+
+    .product-image {
+
+      width:
+        100%;
+
+      height:
+        480px;
+
+      background:
+        #1a1a1a;
+
+      overflow:
+        hidden;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+    }
+
+
+    .product-image img {
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
+
+      display:
+        block;
+
+      transition:
+        0.5s;
+
+    }
+
+
+    .product:hover
+    .product-image img {
+
+      transform:
+        scale(1.04);
+
+    }
+
+
+    .product-info {
+
+      padding:
+        25px;
+
+      text-align:
+        center;
+
+    }
+
+
+    .product-info h3 {
+
+      font-size:
+        17px;
+
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+
+    /* ==============================
+       SOBRE ZERA
+    ============================== */
+
+    .about {
+
+      background:
+        #111;
+
+      text-align:
+        center;
+
+    }
+
+
+    .about-content {
+
+      max-width:
+        700px;
+
+      margin:
+        auto;
+
+    }
+
+
+    .about p {
+
+      color:
+        #aaa;
+
+      line-height:
+        1.9;
+
+      font-size:
+        16px;
+
+    }
+
+
+
+    /* ==============================
+       CONTACTO
+    ============================== */
+
+    .contact {
+
+      text-align:
+        center;
+
+    }
+
+
+    .contact p {
+
+      color:
+        #999;
+
+      margin-bottom:
+        35px;
+
+    }
+
+
+    .social-buttons {
+
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      gap:
+        15px;
+
+      flex-wrap:
+        wrap;
+
+    }
+
+
+    .social-button {
+
+      display:
+        inline-block;
+
+      min-width:
+        180px;
+
+      padding:
+        16px 30px;
+
+      color:
+        white;
+
+      border:
+        1px solid #444;
+
+      font-size:
+        12px;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
+
+      transition:
+        0.3s;
+
+    }
+
+
+    .social-button:hover {
+
+      background:
+        white;
+
+      color:
+        black;
+
+      border-color:
+        white;
+
+    }
+
+
+
+    /* ==============================
+       ZERA ART
+
+       Sección de colecciones inspiradas
+       en artistas. Usa la misma grilla
+       visual que la tienda (.products)
+       para mantener el mismo diseño.
+    ============================== */
+
+    .zera-art-intro {
+
+      text-align:
+        center;
+
+      max-width:
+        700px;
+
+      margin:
+        0 auto 60px;
+
+      color:
+        #aaa;
+
+      line-height:
+        1.9;
+
+      font-size:
+        16px;
+
+    }
+
+
+    .artist-card .product-image {
+
+      height:
+        480px;
+
+    }
+
+
+    .artist-tag {
+
+      display:
+        block;
+
+      color:
+        #888;
+
+      font-size:
+        11px;
+
+      letter-spacing:
+        2px;
+
+      margin-top:
+        6px;
+
+    }
+
+
+    /* Encabezado cuando se está
+       viendo un artista específico */
+
+    .artist-header {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        20px;
+
+      margin-bottom:
+        50px;
+
+    }
+
+
+    .back-to-artists {
+
+      display:
+        inline-block;
+
+      padding:
+        14px 28px;
+
+      color:
+        white;
+
+      border:
+        1px solid #444;
+
+      background:
+        none;
+
+      font-family:
+        inherit;
+
+      font-size:
+        11px;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        2px;
+
+      text-transform:
+        uppercase;
+
+      cursor:
+        pointer;
+
+      transition:
+        0.3s;
+
+    }
+
+
+    .back-to-artists:hover {
+
+      background:
+        white;
+
+      color:
+        black;
+
+    }
+
+
+    .artist-header h3 {
+
+      font-size:
+        26px;
+
+      letter-spacing:
+        5px;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    #artistProductsView {
+
+      display:
+        none;
+
+    }
+
+
+    /* Imagen que da vuelta y muestra
+       la espalda de la remera */
+
+    .flip-wrap {
+
+      position:
+        relative;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+    }
+
+
+    .flip-wrap img {
+
+      position:
+        absolute;
+
+      top:
+        0;
+
+      left:
+        0;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
+
+      transition:
+        opacity 0.4s ease;
+
+    }
+
+
+    .flip-wrap .flip-back {
+
+      opacity:
+        0;
+
+    }
+
+
+    .flip-wrap:hover .flip-front,
+    .flip-wrap.flipped .flip-front {
+
+      opacity:
+        0;
+
+    }
+
+
+    .flip-wrap:hover .flip-back,
+    .flip-wrap.flipped .flip-back {
+
+      opacity:
+        1;
+
+    }
+
+
+    .flip-btn {
+
+      position:
+        absolute;
+
+      bottom:
+        12px;
+
+      right:
+        12px;
+
+      z-index:
+        5;
+
+      width:
+        34px;
+
+      height:
+        34px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(0,0,0,0.6);
+
+      border:
+        1px solid #555;
+
+      color:
+        white;
+
+      font-size:
+        16px;
+
+      cursor:
+        pointer;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+    }
+
+
+    .flip-btn:hover {
+
+      background:
+        white;
+
+      color:
+        black;
+
+    }
+
+
+    .product-price {
+
+      color:
+        #999;
+
+      font-size:
+        13px;
+
+      margin-top:
+        8px;
+
+      letter-spacing:
+        1px;
+
+    }
+
+
+    .product-desc {
+
+      color:
+        #777;
+
+      font-size:
+        12px;
+
+      margin-top:
+        8px;
+
+      line-height:
+        1.6;
+
+    }
+
+
+
+    /* ==============================
+       VENTANA DE CONTACTO
+    ============================== */
+
+    .modal {
+
+      position:
+        fixed;
+
+      top:
+        0;
+
+      left:
+        0;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      z-index:
+        2000;
+
+      display:
+        none;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        20px;
+
+      background:
+        rgba(0,0,0,0.8);
+
+      backdrop-filter:
+        blur(8px);
+
+    }
+
+
+    .modal.active {
+
+      display:
+        flex;
+
+    }
+
+
+    .modal-box {
+
+      width:
+        100%;
+
+      max-width:
+        420px;
+
+      background:
+        #111;
+
+      border:
+        1px solid #333;
+
+      padding:
+        40px 30px;
+
+      text-align:
+        center;
+
+      position:
+        relative;
+
+      animation:
+        modalOpen
+        0.25s
+        ease;
+
+    }
+
+
+    @keyframes modalOpen {
+
+      from {
+
+        opacity:
+          0;
+
+        transform:
+          scale(0.9);
+
+      }
+
+      to {
+
+        opacity:
+          1;
+
+        transform:
+          scale(1);
+
+      }
+
+    }
+
+
+    .modal-box h2 {
+
+      font-size:
+        22px;
+
+      letter-spacing:
+        4px;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        12px;
+
+    }
+
+
+    .modal-box p {
+
+      color:
+        #999;
+
+      font-size:
+        14px;
+
+      margin-bottom:
+        30px;
+
+    }
+
+
+    .modal-buttons {
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        12px;
+
+    }
+
+
+    .modal-button {
+
+      width:
+        100%;
+
+      padding:
+        16px;
+
+      color:
+        white;
+
+      border:
+        1px solid #444;
+
+      font-size:
+        12px;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
+
+      transition:
+        0.3s;
+
+    }
+
+
+    .modal-button:hover {
+
+      background:
+        white;
+
+      color:
+        black;
+
+    }
+
+
+    .close-modal {
+
+      position:
+        absolute;
+
+      top:
+        15px;
+
+      right:
+        20px;
+
+      background:
+        none;
+
+      border:
+        none;
+
+      color:
+        #aaa;
+
+      font-size:
+        25px;
+
+      cursor:
+        pointer;
+
+    }
+
+
+    .close-modal:hover {
+
+      color:
+        white;
+
+    }
+
+
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    footer {
+
+      padding:
+        30px 20px;
+
+      border-top:
+        1px solid #222;
+
+      text-align:
+        center;
+
+      color:
+        #555;
+
+      font-size:
+        10px;
+
+      letter-spacing:
+        3px;
+
+    }
+
+
+
+    /* ==============================
+       RESPONSIVE
+    ============================== */
+
+    @media
+    (max-width: 900px) {
+
+      .products {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+    }
+
+
+    @media
+    (max-width: 600px) {
+
+      .menu {
+
+        display:
+          none;
+
+      }
+
+
+      .products {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .product-image {
+
+        height:
+          auto;
+
+      }
+
+
+      .product-image img {
+
+        height:
+          auto;
+
+        object-fit:
+          contain;
+
+      }
+
+
+      section {
+
+        padding:
+          75px 20px;
+
+      }
+
+
+      .hero h1 {
+
+        font-size:
+          70px;
+
+        letter-spacing:
+          10px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+
+<body>
+
+
+  <!-- ==============================
+       NAVBAR
+  ============================== -->
+
+  <header>
+
+    <nav>
+
+      <div class="logo-wrap">
+
+        <a
+          href="#inicio"
+          class="logo"
+        >
+          ZERA
+        </a>
+
+
+        <button
+          class="logo-arrow"
+          id="logoArrow"
+          onclick="toggleLogoDropdown()"
+          aria-label="Ver Zera Art"
+        >
+          ▾
+        </button>
+
+
+        <div
+          class="logo-dropdown"
+          id="logoDropdown"
+        >
+
+          <span class="logo-dropdown-zera">
+            ZERA
+          </span>
+
+          <a
+            class="logo-dropdown-art"
+            href="#zera-art"
+            onclick="goToTurrobabyFromLogo()"
+          >
+            ART
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <ul class="menu">
+
+        <li>
+          <a href="#inicio">
+            Inicio
+          </a>
+        </li>
+
+        <li>
+          <a href="#shop">
+            Shop
+          </a>
+        </li>
+
+        <li>
+          <a href="#zera-art">
+            Zera Art
+          </a>
+        </li>
+
+        <li>
+          <a href="#nosotros">
+            Nosotros
+          </a>
+        </li>
+
+        <li>
+          <a href="#contacto">
+            Contacto
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- ==============================
+       HERO
+  ============================== -->
+
+  <section
+    class="hero"
+    id="inicio"
+  >
+
+    <div class="hero-content">
+
+      <h1>
+        ZERA
+      </h1>
+
+      <p>
+        Streetwear desde cero
+      </p>
+
+      <a
+        href="#shop"
+        class="hero-button"
+      >
+        Ver colección
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       PRODUCTOS
+
+       Los productos se generan desde
+       la lista PRODUCTS en el script
+       al final del archivo, para poder
+       agregar prendas nuevas editando
+       solo esa lista.
+  ============================== -->
+
+  <section id="shop">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Colección
+      </h2>
+
+
+      <div
+        class="products"
+        id="productsGrid"
+      >
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       ZERA ART
+
+       Sección de colecciones inspiradas
+       en artistas. La data de artistas y
+       productos vive en la lista ARTISTS
+       dentro del script, al final del
+       archivo. Para agregar un artista
+       nuevo alcanza con sumar un objeto
+       ahí, no hace falta tocar este HTML.
+
+       Navegación: ZERA ART -> Artista ->
+       Productos del artista.
+  ============================== -->
+
+  <section id="zera-art">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Zera Art
+      </h2>
+
+      <p class="zera-art-intro">
+
+        Colecciones de ZERA inspiradas en
+        artistas: su estética, referencias,
+        conceptos y discos, llevados a
+        prendas de streetwear.
+
+      </p>
+
+
+      <!-- Vista: lista de artistas -->
+
+      <div id="artistsView">
+
+        <div
+          class="products"
+          id="artistsGrid"
+        >
+        </div>
+
+      </div>
+
+
+      <!-- Vista: productos del artista
+           seleccionado -->
+
+      <div id="artistProductsView">
+
+        <div class="artist-header">
+
+          <button
+            class="back-to-artists"
+            onclick="backToArtists()"
+          >
+            ← Volver a artistas
+          </button>
+
+          <h3 id="artistViewTitle">
+          </h3>
+
+        </div>
+
+
+        <div
+          class="products"
+          id="artistProductsGrid"
+        >
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       SOBRE ZERA
+  ============================== -->
+
+  <section
+    class="about"
+    id="nosotros"
+  >
+
+    <div class="about-content">
+
+      <h2 class="section-title">
+        ZERA
+      </h2>
+
+
+      <p>
+
+        ZERA nace desde cero.
+
+        Una marca de streetwear creada
+        para representar una identidad propia,
+        romper con lo establecido y convertir
+        cada prenda en una forma de expresión.
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       CONTACTO
+  ============================== -->
+
+  <section
+    class="contact"
+    id="contacto"
+  >
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Contacto
+      </h2>
+
+
+      <p>
+
+        ¿Querés consultar por alguna prenda?
+
+        Escribinos directamente.
+
+      </p>
+
+
+      <div class="social-buttons">
+
+
+        <!-- WHATSAPP -->
+
+        <a
+          class="social-button"
+          href="https://wa.me/542613081230"
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          class="social-button"
+          href="https://www.instagram.com/zera.estilo/"
+          target="_blank"
+        >
+          Instagram
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       MODAL
+  ============================== -->
+
+  <div
+    class="modal"
+    id="contactModal"
+  >
+
+    <div class="modal-box">
+
+
+      <button
+        class="close-modal"
+        onclick="closeModal()"
+      >
+        ×
+      </button>
+
+
+      <h2 id="productName">
+        Producto
+      </h2>
+
+
+      <p>
+        ¿Dónde querés contactarnos?
+      </p>
+
+
+      <div class="modal-buttons">
+
+
+        <!-- WHATSAPP -->
+
+        <a
+          id="whatsappLink"
+          class="modal-button"
+          href="#"
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          class="modal-button"
+          href="https://www.instagram.com/zera.estilo/"
+          target="_blank"
+        >
+          Instagram
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ==============================
+       FOOTER
+  ============================== -->
+
+  <footer>
+
+    © 2026 ZERA — STREETWEAR DESDE CERO
+
+  </footer>
+
+
+
+  <!-- ==============================
+       JAVASCRIPT
+  ============================== -->
+
+  <script>
+
+    /*
+      Lista de productos de la tienda.
+
+      Para agregar una prenda nueva alcanza
+      con subir la imagen al repo y sumar un
+      objeto { name, image } a esta lista.
+    */
+
+    const PRODUCTS = [
+
+      {
+        name: "Remera Dientes",
+        image: "remera-dientes.png"
+      },
+
+      {
+        name: "Remera Ojo",
+        image: "remera-ojo.png"
+      },
+
+      {
+        name: "Remera Caída Blanca",
+        image: "remera-caida-blanca.png"
+      },
+
+      {
+        name: "Remera Caída Negra",
+        image: "remera-caida-negra.png"
+      },
+
+      {
+        name: "Remera Abrazo",
+        image: "remera-abrazo-blanca.png"
+      },
+
+      {
+        name: "Remera Pistola Blanca",
+        image: "remera-pistola-blanca.png"
+      },
+
+      {
+        name: "Remera Pistola Negra",
+        image: "remera-pistola-negra.png"
+      },
+
+      {
+        name: "Remera Rosario Blanca",
+        image: "remera-rosario-blanca.png"
+      },
+
+      {
+        name: "Remera Rosario Negra",
+        image: "remera-rosario-negra.png"
+      },
+
+      {
+        name: "Remera Ángeles Blanca",
+        image: "remera-angeles-blanca.png"
+      },
+
+      {
+        name: "Remera Ángeles Negra",
+        image: "remera-angeles-negra.png"
+      },
+
+      {
+        name: "Remera Plegaria Blanca",
+        image: "remera-plegaria-blanca.png"
+      },
+
+      {
+        name: "Remera Plegaria Negra",
+        image: "remera-plegaria-negra.png"
+      },
+
+      {
+        name: "Remera Rayos X Blanca",
+        image: "remera-rayosx-blanca.png"
+      },
+
+      {
+        name: "Remera Rayos X Negra",
+        image: "remera-rayosx-negra.png"
+      },
+
+      {
+        name: "Remera Creación Blanca",
+        image: "remera-creacion-blanca.png"
+      },
+
+      {
+        name: "Remera Creación Negra",
+        image: "remera-creacion-negra.png"
+      },
+
+      {
+        name: "Jogger Blanco",
+        image: "jogger-blanco.png"
+      },
+
+      {
+        name: "Jogger Negro",
+        image: "jogger-negro.png"
+      },
+
+      {
+        name: "Jogger Sangre Blanco",
+        image: "jogger-sangre-blanco.png"
+      },
+
+      {
+        name: "Jogger Sangre Negro",
+        image: "jogger-sangre-negro.png"
+      },
+
+      {
+        name: "Jogger Rosa Blanco",
+        image: "jogger-rosa-blanco.jpg"
+      }
+
+    ];
+
+
+
+    /*
+      Dibuja todas las tarjetas
+      de producto en la grilla.
+    */
+
+    function renderProducts() {
+
+      const grid =
+        document.getElementById(
+          "productsGrid"
+        );
+
+      grid.innerHTML =
+        PRODUCTS
+          .map(function(product, index) {
+
+            return (
+              '<div class="product" onclick="openModal(' +
+              index +
+              ')">' +
+                '<div class="product-image">' +
+                  '<img src="' + product.image + '" alt="ZERA ' + product.name + '">' +
+                '</div>' +
+                '<div class="product-info">' +
+                  '<h3>' + product.name + '</h3>' +
+                '</div>' +
+              '</div>'
+            );
+
+          })
+          .join("");
+
+    }
+
+
+
+    /*
+      ==============================
+      ZERA ART
+
+      Estructura de datos de artistas.
+
+      Para agregar un artista nuevo,
+      sumá un objeto a esta lista con
+      este formato:
+
+      {
+        id: "identificador-unico",
+        name: "Nombre del artista",
+        image: "imagen-de-portada.png",
+        products: [
+          {
+            name: "Nombre de la prenda",
+            front: "imagen-frente.png",
+            back: "imagen-espalda.png"  (opcional),
+            price: "$00.000"            (opcional),
+            description: "texto"        (opcional)
+          },
+          ...
+        ]
+      }
+
+      Con eso alcanza: automáticamente
+      va a aparecer dentro de
+      ZERA ART -> Nombre del artista.
+      ==============================
+    */
+
+    const ARTISTS = [
+
+      {
+        id: "turrobaby",
+        name: "Turrobaby",
+        image: "turrobaby-fumando.png",
+        products: [
+
+          {
+            name: "Remera Turrobaby Fumando",
+            front: "turrobaby-fumando.png",
+            back: "turrobaby-espalda.png"
+          },
+
+          {
+            name: "Remera Turrobaby DNI",
+            front: "turrobaby-dni.jpg",
+            back: "turrobaby-espalda.png"
+          },
+
+          {
+            name: "Remera Turrobaby Corazón",
+            front: "turrobaby-corazon.jpg",
+            back: "turrobaby-espalda.png"
+          }
+
+        ]
+      }
+
+      /*
+        Ejemplo de cómo se agregaría
+        un próximo artista:
+
+        ,{
+          id: "bad-bunny",
+          name: "Bad Bunny",
+          image: "badbunny-portada.png",
+          products: [
+            { name: "Remera 1", front: "badbunny-1.png" },
+            { name: "Remera 2", front: "badbunny-2.png" },
+            { name: "Remera 3", front: "badbunny-3.png" }
+          ]
+        }
+      */
+
+    ];
+
+
+    /*
+      Dibuja las tarjetas de
+      cada artista disponible.
+    */
+
+    function renderArtists() {
+
+      const grid =
+        document.getElementById(
+          "artistsGrid"
+        );
+
+      grid.innerHTML =
+        ARTISTS
+          .map(function(artist) {
+
+            return (
+              '<div class="product" onclick="openArtist(\'' + artist.id + '\')">' +
+                '<div class="product-image">' +
+                  '<img src="' + artist.image + '" alt="ZERA ART ' + artist.name + '">' +
+                '</div>' +
+                '<div class="product-info">' +
+                  '<h3>' + artist.name + '</h3>' +
+                  '<span class="artist-tag">Ver colección</span>' +
+                '</div>' +
+              '</div>'
+            );
+
+          })
+          .join("");
+
+    }
+
+
+    /*
+      Dibuja las prendas del
+      artista seleccionado y
+      muestra esa vista.
+    */
+
+    function openArtist(artistId) {
+
+      const artist =
+        ARTISTS.find(function(a) {
+          return a.id === artistId;
+        });
+
+      if (!artist) {
+        return;
+      }
+
+
+      const grid =
+        document.getElementById(
+          "artistProductsGrid"
+        );
+
+      grid.innerHTML =
+        artist.products
+          .map(function(product, index) {
+
+            const hasBack =
+              !!product.back;
+
+            const imageHtml =
+              hasBack ?
+
+                (
+                  '<div class="flip-wrap">' +
+                    '<img class="flip-front" src="' + product.front + '" alt="ZERA ART ' + product.name + '">' +
+                    '<img class="flip-back" src="' + product.back + '" alt="ZERA ART ' + product.name + ' espalda">' +
+                    '<button class="flip-btn" onclick="event.stopPropagation(); this.closest(\'.flip-wrap\').classList.toggle(\'flipped\')" aria-label="Ver espalda">⟲</button>' +
+                  '</div>'
+                )
+
+                :
+
+                (
+                  '<img src="' + product.front + '" alt="ZERA ART ' + product.name + '">'
+                );
+
+            const priceHtml =
+              product.price ?
+                '<div class="product-price">' + product.price + '</div>' :
+                '';
+
+            const descHtml =
+              product.description ?
+                '<div class="product-desc">' + product.description + '</div>' :
+                '';
+
+            return (
+              '<div class="product" onclick="openArtistModal(\'' + artist.id + '\', ' + index + ')">' +
+                '<div class="product-image">' +
+                  imageHtml +
+                '</div>' +
+                '<div class="product-info">' +
+                  '<h3>' + product.name + '</h3>' +
+                  priceHtml +
+                  descHtml +
+                '</div>' +
+              '</div>'
+            );
+
+          })
+          .join("");
+
+
+      document.getElementById(
+        "artistViewTitle"
+      ).textContent = artist.name;
+
+
+      document.getElementById(
+        "artistsView"
+      ).style.display = "none";
+
+      document.getElementById(
+        "artistProductsView"
+      ).style.display = "block";
+
+
+      document
+        .getElementById("zera-art")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    /*
+      Vuelve a la lista
+      de artistas.
+    */
+
+    function backToArtists() {
+
+      document.getElementById(
+        "artistProductsView"
+      ).style.display = "none";
+
+      document.getElementById(
+        "artistsView"
+      ).style.display = "block";
+
+
+      document
+        .getElementById("zera-art")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    /*
+      Abre la ventana de contacto
+      para un producto de Zera Art.
+    */
+
+    function openArtistModal(artistId, productIndex) {
+
+      const artist =
+        ARTISTS.find(function(a) {
+          return a.id === artistId;
+        });
+
+      if (!artist) {
+        return;
+      }
+
+      openModalForProduct(
+        artist.products[productIndex]
+      );
+
+    }
+
+
+    /*
+      Esta función abre la ventana
+      de contacto de un producto
+      cualquiera (tienda o Zera Art).
+    */
+
+    function openModalForProduct(product) {
+
+      const modal =
+        document.getElementById(
+          "contactModal"
+        );
+
+
+      const name =
+        document.getElementById(
+          "productName"
+        );
+
+
+      const whatsapp =
+        document.getElementById(
+          "whatsappLink"
+        );
+
+
+      /*
+        Cambia el nombre
+        del producto.
+      */
+
+      name.textContent =
+        product.name;
+
+
+      /*
+        Crea automáticamente
+        el mensaje de WhatsApp.
+      */
+
+      const message =
+        "Hola ZERA, quiero consultar por el producto: "
+        + product.name;
+
+
+      /*
+        Configura el botón
+        de WhatsApp.
+      */
+
+      whatsapp.href =
+        "https://wa.me/542613081230?text="
+        + encodeURIComponent(message);
+
+
+      /*
+        Muestra la ventana.
+      */
+
+      modal.classList.add(
+        "active"
+      );
+
+    }
+
+
+    /*
+      Abre la ventana de contacto
+      para un producto de la tienda
+      (grilla principal PRODUCTS).
+    */
+
+    function openModal(productIndex) {
+
+      openModalForProduct(
+        PRODUCTS[productIndex]
+      );
+
+    }
+
+
+
+    /*
+      Cierra la ventana.
+    */
+
+    function closeModal() {
+
+      const modal =
+        document.getElementById(
+          "contactModal"
+        );
+
+
+      modal.classList.remove(
+        "active"
+      );
+
+    }
+
+
+
+    /*
+      Si tocás fuera de la ventana,
+      también se cierra.
+    */
+
+    document
+      .getElementById(
+        "contactModal"
+      )
+      .addEventListener(
+        "click",
+        function(event) {
+
+          if (
+            event.target ===
+            this
+          ) {
+
+            closeModal();
+
+          }
+
+        }
+      );
+
+
+    /*
+      ==============================
+      LOGO + FLECHA ZERA ART
+      ==============================
+    */
+
+    function toggleLogoDropdown() {
+
+      document
+        .getElementById("logoArrow")
+        .classList.toggle("open");
+
+      document
+        .getElementById("logoDropdown")
+        .classList.toggle("open");
+
+    }
+
+
+    function closeLogoDropdown() {
+
+      document
+        .getElementById("logoArrow")
+        .classList.remove("open");
+
+      document
+        .getElementById("logoDropdown")
+        .classList.remove("open");
+
+    }
+
+
+    /*
+      Al tocar "ART" en el
+      desplegable, cierra el menú
+      y va directo a la colección
+      de Turrobaby dentro de
+      Zera Art.
+    */
+
+    function goToTurrobabyFromLogo() {
+
+      closeLogoDropdown();
+
+      openArtist("turrobaby");
+
+    }
+
+
+    /*
+      Si tocás afuera del logo,
+      se cierra el desplegable.
+    */
+
+    document.addEventListener(
+      "click",
+      function(event) {
+
+        const wrap =
+          document.querySelector(
+            ".logo-wrap"
+          );
+
+        if (
+          wrap &&
+          !wrap.contains(event.target)
+        ) {
+
+          closeLogoDropdown();
+
+        }
+
+      }
+    );
+
+
+    renderProducts();
+    renderArtists();
+
+  </script>
+
+
+</body>
+
+</html>
