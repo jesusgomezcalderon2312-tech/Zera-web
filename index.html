@@ -260,6 +260,9 @@
       min-width:
         140px;
 
+      z-index:
+        1500;
+
     }
 
 
@@ -952,6 +955,20 @@
     }
 
 
+    /* La sección entera de Zera Art
+       arranca oculta: no se llega
+       scrolleando, solo tocando el
+       botón (flecha del logo o el
+       link del menú). */
+
+    #zera-art {
+
+      display:
+        none;
+
+    }
+
+
     /* Imagen que da vuelta y muestra
        la espalda de la remera */
 
@@ -1504,7 +1521,7 @@
           <a
             class="logo-dropdown-art"
             href="#zera-art"
-            onclick="goToTurrobabyFromLogo()"
+            onclick="event.preventDefault(); goToTurrobabyFromLogo();"
           >
             ART
           </a>
@@ -1529,7 +1546,10 @@
         </li>
 
         <li>
-          <a href="#zera-art">
+          <a
+            href="#zera-art"
+            onclick="event.preventDefault(); openZeraArtSection();"
+          >
             Zera Art
           </a>
         </li>
@@ -2422,6 +2442,14 @@
     /*
       ==============================
       LOGO + FLECHA ZERA ART
+
+      La sección Zera Art arranca
+      oculta (display:none en el
+      CSS). Estas funciones son las
+      únicas que la muestran, así
+      que solo se puede llegar
+      tocando el botón, nunca
+      scrolleando desde el shop.
       ==============================
     */
 
@@ -2452,16 +2480,38 @@
 
 
     /*
+      Muestra la sección Zera Art
+      (lista de artistas) y hace
+      scroll hasta ahí.
+    */
+
+    function openZeraArtSection() {
+
+      document.getElementById(
+        "zera-art"
+      ).style.display = "block";
+
+      document
+        .getElementById("zera-art")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    /*
       Al tocar "ART" en el
-      desplegable, cierra el menú
-      y va directo a la colección
-      de Turrobaby dentro de
-      Zera Art.
+      desplegable del logo: muestra
+      la sección y va directo a la
+      colección de Turrobaby.
     */
 
     function goToTurrobabyFromLogo() {
 
       closeLogoDropdown();
+
+      openZeraArtSection();
 
       openArtist("turrobaby");
 
