@@ -13,6 +13,23 @@
   <title>ZERA — Streetwear</title>
 
 
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+
   <style>
 
     /* ==============================
@@ -31,6 +48,7 @@
 
     body {
       font-family:
+        'Inter',
         Arial,
         Helvetica,
         sans-serif;
@@ -40,10 +58,15 @@
       color: white;
 
       overflow-x: hidden;
+
+      -webkit-font-smoothing:
+        antialiased;
+
     }
 
     a {
       text-decoration: none;
+      color: inherit;
     }
 
 
@@ -151,14 +174,17 @@
       justify-content:
         center;
 
-      width:
-        26px;
+      gap:
+        6px;
 
       height:
-        26px;
+        36px;
+
+      padding:
+        0 16px;
 
       border-radius:
-        50%;
+        30px;
 
       background:
         white;
@@ -173,10 +199,19 @@
         pointer;
 
       font-size:
-        13px;
+        11px;
 
-      line-height:
-        1;
+      font-weight:
+        900;
+
+      letter-spacing:
+        2px;
+
+      text-transform:
+        uppercase;
+
+      white-space:
+        nowrap;
 
       transition:
         0.3s;
@@ -195,16 +230,8 @@
       background:
         #bdbdbd;
 
-    }
-
-
-    .logo-arrow.open {
-
       transform:
-        rotate(180deg);
-
-      animation:
-        none;
+        scale(1.05);
 
     }
 
@@ -221,100 +248,9 @@
       50% {
 
         box-shadow:
-          0 0 0 6px rgba(255,255,255,0);
+          0 0 0 8px rgba(255,255,255,0);
 
       }
-
-    }
-
-
-    .logo-dropdown {
-
-      position:
-        absolute;
-
-      top:
-        calc(100% + 10px);
-
-      left:
-        0;
-
-      display:
-        none;
-
-      flex-direction:
-        column;
-
-      align-items:
-        flex-start;
-
-      background:
-        rgba(8, 8, 8, 0.97);
-
-      border:
-        1px solid #333;
-
-      padding:
-        16px 20px;
-
-      min-width:
-        140px;
-
-      z-index:
-        1500;
-
-    }
-
-
-    .logo-dropdown.open {
-
-      display:
-        flex;
-
-    }
-
-
-    .logo-dropdown-zera {
-
-      color:
-        #555;
-
-      font-size:
-        14px;
-
-      font-weight:
-        900;
-
-      letter-spacing:
-        4px;
-
-    }
-
-
-    .logo-dropdown a.logo-dropdown-art {
-
-      color:
-        white;
-
-      font-size:
-        22px;
-
-      font-weight:
-        900;
-
-      letter-spacing:
-        4px;
-
-      transition:
-        0.3s;
-
-    }
-
-
-    .logo-dropdown a.logo-dropdown-art:hover {
-
-      opacity:
-        0.6;
 
     }
 
@@ -521,6 +457,9 @@
       font-size:
         38px;
 
+      font-weight:
+        800;
+
       letter-spacing:
         7px;
 
@@ -528,7 +467,33 @@
         uppercase;
 
       margin-bottom:
-        60px;
+        40px;
+
+      position:
+        relative;
+
+    }
+
+
+    .section-title::after {
+
+      content:
+        "";
+
+      display:
+        block;
+
+      width:
+        50px;
+
+      height:
+        2px;
+
+      background:
+        white;
+
+      margin:
+        20px auto 0;
 
     }
 
@@ -579,6 +544,9 @@
 
       border-color:
         #555;
+
+      box-shadow:
+        0 20px 40px rgba(0,0,0,0.5);
 
     }
 
@@ -653,6 +621,9 @@
 
       font-size:
         17px;
+
+      font-weight:
+        700;
 
       letter-spacing:
         3px;
@@ -1044,34 +1015,46 @@
         absolute;
 
       bottom:
-        12px;
+        16px;
 
       right:
-        12px;
+        16px;
+
+      left:
+        16px;
 
       z-index:
         5;
 
-      width:
-        34px;
-
       height:
-        34px;
+        44px;
 
       border-radius:
-        50%;
+        4px;
 
       background:
-        rgba(0,0,0,0.6);
+        rgba(0,0,0,0.75);
+
+      backdrop-filter:
+        blur(4px);
 
       border:
-        1px solid #555;
+        1px solid rgba(255,255,255,0.4);
 
       color:
         white;
 
       font-size:
-        16px;
+        11px;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        2px;
+
+      text-transform:
+        uppercase;
 
       cursor:
         pointer;
@@ -1084,6 +1067,12 @@
 
       justify-content:
         center;
+
+      gap:
+        8px;
+
+      transition:
+        0.3s;
 
     }
 
@@ -1376,7 +1365,7 @@
     footer {
 
       padding:
-        30px 20px;
+        50px 20px;
 
       border-top:
         1px solid #222;
@@ -1388,10 +1377,13 @@
         #555;
 
       font-size:
-        10px;
+        11px;
 
       letter-spacing:
         3px;
+
+      text-transform:
+        uppercase;
 
     }
 
@@ -1531,31 +1523,11 @@
         <button
           class="logo-arrow"
           id="logoArrow"
-          onclick="toggleLogoDropdown()"
+          onclick="openZeraArtSection()"
           aria-label="Ver Zera Art"
         >
-          ▾
+          Zera Art
         </button>
-
-
-        <div
-          class="logo-dropdown"
-          id="logoDropdown"
-        >
-
-          <span class="logo-dropdown-zera">
-            ZERA
-          </span>
-
-          <a
-            class="logo-dropdown-art"
-            href="#zera-art"
-            onclick="event.preventDefault(); goToTurrobabyFromLogo();"
-          >
-            ART
-          </a>
-
-        </div>
 
       </div>
 
@@ -2134,7 +2106,7 @@
           },
 
           {
-            name: "Remera Turrobaby Corazón",
+            name: "Remera Turrobaby",
             front: "turrobaby-corazon.jpg",
             back: "turrobaby-espalda.png"
           }
@@ -2265,7 +2237,7 @@
                   '<div class="flip-wrap">' +
                     '<img class="flip-front" src="' + product.front + '" alt="ZERA ART ' + product.name + '">' +
                     '<img class="flip-back" src="' + product.back + '" alt="ZERA ART ' + product.name + ' espalda">' +
-                    '<button class="flip-btn" onclick="event.stopPropagation(); this.closest(\'.flip-wrap\').classList.toggle(\'flipped\')" aria-label="Ver espalda">⟲</button>' +
+                    '<button class="flip-btn" onclick="toggleFlip(event, this)" aria-label="Dar vuelta a la remera">Dar vuelta</button>' +
                   '</div>'
                 )
 
@@ -2502,52 +2474,71 @@
 
 
     /*
-      ==============================
-      LOGO + FLECHA ZERA ART
-
-      La sección Zera Art arranca
-      oculta (display:none en el
-      CSS). Estas funciones son las
-      únicas que la muestran, así
-      que solo se puede llegar
-      tocando el botón, nunca
-      scrolleando desde el shop.
-      ==============================
+      Da vuelta la imagen del
+      producto (frente / espalda)
+      y cambia el texto del botón.
     */
 
-    function toggleLogoDropdown() {
+    function toggleFlip(event, btn) {
 
-      document
-        .getElementById("logoArrow")
-        .classList.toggle("open");
+      event.stopPropagation();
 
-      document
-        .getElementById("logoDropdown")
-        .classList.toggle("open");
+      const wrap =
+        btn.closest(".flip-wrap");
 
-    }
+      wrap.classList.toggle(
+        "flipped"
+      );
 
+      const isFlipped =
+        wrap.classList.contains(
+          "flipped"
+        );
 
-    function closeLogoDropdown() {
-
-      document
-        .getElementById("logoArrow")
-        .classList.remove("open");
-
-      document
-        .getElementById("logoDropdown")
-        .classList.remove("open");
+      btn.textContent =
+        isFlipped ?
+          "Ver frente" :
+          "Dar vuelta";
 
     }
 
 
     /*
-      Muestra la sección Zera Art
-      (lista de artistas) y hace
-      scroll hasta ahí.
+      ==============================
+      LOGO + BOTÓN ZERA ART
+
+      La sección Zera Art arranca
+      oculta (display:none en el
+      CSS). Esta función es la
+      única que la muestra, así
+      que solo se puede llegar
+      tocando el botón, nunca
+      scrolleando desde el shop.
+
+      Siempre muestra la lista
+      completa de artistas (no
+      salta directo a ninguno).
+      ==============================
     */
 
     function openZeraArtSection() {
+
+      /*
+        Si había quedado abierta
+        la vista de un artista de
+        una visita anterior, la
+        cerramos para mostrar
+        siempre la lista completa.
+      */
+
+      document.getElementById(
+        "artistProductsView"
+      ).style.display = "none";
+
+      document.getElementById(
+        "artistsView"
+      ).style.display = "block";
+
 
       document.getElementById(
         "zera-art"
@@ -2562,55 +2553,11 @@
     }
 
 
-    /*
-      Al tocar "ART" en el
-      desplegable del logo: muestra
-      la sección y va directo a la
-      colección de Turrobaby.
-    */
-
-    function goToTurrobabyFromLogo() {
-
-      closeLogoDropdown();
-
-      openZeraArtSection();
-
-      openArtist("turrobaby");
-
-    }
-
-
-    /*
-      Si tocás afuera del logo,
-      se cierra el desplegable.
-    */
-
-    document.addEventListener(
-      "click",
-      function(event) {
-
-        const wrap =
-          document.querySelector(
-            ".logo-wrap"
-          );
-
-        if (
-          wrap &&
-          !wrap.contains(event.target)
-        ) {
-
-          closeLogoDropdown();
-
-        }
-
-      }
-    );
-
-
     renderProducts();
     renderArtists();
 
   </script>
+
 
 
 </body>
