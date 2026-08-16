@@ -512,7 +512,7 @@
         repeat(3, 1fr);
 
       gap:
-        25px;
+        32px;
 
     }
 
@@ -593,6 +593,63 @@
 
       transition:
         0.5s;
+
+    }
+
+
+    /* Título de subcategoría dentro
+       del shop (Remeras / Pantalones).
+       No afecta a Zera Art. */
+
+    .shop-subtitle {
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        4px;
+
+      text-transform:
+        uppercase;
+
+      color:
+        #999;
+
+      margin-bottom:
+        30px;
+
+      padding-bottom:
+        16px;
+
+      border-bottom:
+        1px solid #222;
+
+    }
+
+
+    .shop-subtitle-spaced {
+
+      margin-top:
+        90px;
+
+    }
+
+
+    /* Imagen horizontal, solo para
+       las tarjetas del shop (no
+       para Zera Art, que queda
+       con su formato actual). */
+
+    .product-image.shop-image {
+
+      height:
+        auto;
+
+      aspect-ratio:
+        4 / 3;
 
     }
 
@@ -1626,9 +1683,24 @@
       </h2>
 
 
+      <h3 class="shop-subtitle">
+        Remeras
+      </h3>
+
       <div
         class="products"
-        id="productsGrid"
+        id="productsGridRemeras"
+      >
+      </div>
+
+
+      <h3 class="shop-subtitle shop-subtitle-spaced">
+        Pantalones
+      </h3>
+
+      <div
+        class="products"
+        id="productsGridPantalones"
       >
       </div>
 
@@ -1904,113 +1976,135 @@
     const PRODUCTS = [
 
       {
-        name: "Remera Dientes",
-        image: "remera-dientes.png"
+        name: "Remera Colmillo",
+        image: "remera-dientes.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Ojo",
-        image: "remera-ojo.png"
+        name: "Remera Iris",
+        image: "remera-ojo.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Caída Blanca",
-        image: "remera-caida-blanca.png"
+        name: "Remera Éxodo Blanca",
+        image: "remera-caida-blanca.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Caída Negra",
-        image: "remera-caida-negra.png"
+        name: "Remera Éxodo Negra",
+        image: "remera-caida-negra.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Abrazo",
-        image: "remera-abrazo-blanca.png"
+        name: "Remera Vínculo",
+        image: "remera-abrazo-blanca.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Pistola Blanca",
-        image: "remera-pistola-blanca.png"
+        name: "Remera Gatillo Blanca",
+        image: "remera-pistola-blanca.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Pistola Negra",
-        image: "remera-pistola-negra.png"
+        name: "Remera Gatillo Negra",
+        image: "remera-pistola-negra.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Rosario Blanca",
-        image: "remera-rosario-blanca.png"
+        name: "Remera Devoción Blanca",
+        image: "remera-rosario-blanca.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Rosario Negra",
-        image: "remera-rosario-negra.png"
+        name: "Remera Devoción Negra",
+        image: "remera-rosario-negra.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Ángeles Blanca",
-        image: "remera-angeles-blanca.png"
+        name: "Remera Serafín Blanca",
+        image: "remera-angeles-blanca.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Ángeles Negra",
-        image: "remera-angeles-negra.png"
+        name: "Remera Serafín Negra",
+        image: "remera-angeles-negra.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Plegaria Blanca",
-        image: "remera-plegaria-blanca.png"
+        name: "Remera Letanía Blanca",
+        image: "remera-plegaria-blanca.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Plegaria Negra",
-        image: "remera-plegaria-negra.png"
+        name: "Remera Letanía Negra",
+        image: "remera-plegaria-negra.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Rayos X Blanca",
-        image: "remera-rayosx-blanca.png"
+        name: "Remera Anatomía Blanca",
+        image: "remera-rayosx-blanca.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Rayos X Negra",
-        image: "remera-rayosx-negra.png"
+        name: "Remera Anatomía Negra",
+        image: "remera-rayosx-negra.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Creación Blanca",
-        image: "remera-creacion-blanca.png"
+        name: "Remera Génesis Blanca",
+        image: "remera-creacion-blanca.png",
+        category: "remera"
       },
 
       {
-        name: "Remera Creación Negra",
-        image: "remera-creacion-negra.png"
+        name: "Remera Génesis Negra",
+        image: "remera-creacion-negra.png",
+        category: "remera"
       },
 
       {
-        name: "Jogger Blanco",
-        image: "jogger-blanco.png"
+        name: "Jogger Eclipse Blanco",
+        image: "jogger-blanco.png",
+        category: "pantalon"
       },
 
       {
-        name: "Jogger Negro",
-        image: "jogger-negro.png"
+        name: "Jogger Eclipse Negro",
+        image: "jogger-negro.png",
+        category: "pantalon"
       },
 
       {
-        name: "Jogger Sangre Blanco",
-        image: "jogger-sangre-blanco.png"
+        name: "Jogger Carmín Blanco",
+        image: "jogger-sangre-blanco.png",
+        category: "pantalon"
       },
 
       {
-        name: "Jogger Sangre Negro",
-        image: "jogger-sangre-negro.png"
+        name: "Jogger Carmín Negro",
+        image: "jogger-sangre-negro.png",
+        category: "pantalon"
       },
 
       {
-        name: "Jogger Rosa Blanco",
-        image: "jogger-rosa-blanco.jpg"
+        name: "Jogger Pétalo Blanco",
+        image: "jogger-rosa-blanco.jpg",
+        category: "pantalon"
       }
 
     ];
@@ -2018,35 +2112,58 @@
 
 
     /*
-      Dibuja todas las tarjetas
-      de producto en la grilla.
+      Dibuja las tarjetas de producto,
+      separadas en dos grillas: una
+      de remeras y otra de pantalones.
     */
 
     function renderProducts() {
 
-      const grid =
-        document.getElementById(
-          "productsGrid"
+      function buildCard(product) {
+
+        const index =
+          PRODUCTS.indexOf(product);
+
+        return (
+          '<div class="product" onclick="openModal(' +
+          index +
+          ')">' +
+            '<div class="product-image shop-image">' +
+              '<img src="' + product.image + '" alt="ZERA ' + product.name + '">' +
+            '</div>' +
+            '<div class="product-info">' +
+              '<h3>' + product.name + '</h3>' +
+            '</div>' +
+          '</div>'
         );
 
-      grid.innerHTML =
-        PRODUCTS
-          .map(function(product, index) {
+      }
 
-            return (
-              '<div class="product" onclick="openModal(' +
-              index +
-              ')">' +
-                '<div class="product-image">' +
-                  '<img src="' + product.image + '" alt="ZERA ' + product.name + '">' +
-                '</div>' +
-                '<div class="product-info">' +
-                  '<h3>' + product.name + '</h3>' +
-                '</div>' +
-              '</div>'
-            );
 
-          })
+      const remeras =
+        PRODUCTS.filter(function(p) {
+          return p.category === "remera";
+        });
+
+      const pantalones =
+        PRODUCTS.filter(function(p) {
+          return p.category === "pantalon";
+        });
+
+
+      document.getElementById(
+        "productsGridRemeras"
+      ).innerHTML =
+        remeras
+          .map(buildCard)
+          .join("");
+
+
+      document.getElementById(
+        "productsGridPantalones"
+      ).innerHTML =
+        pantalones
+          .map(buildCard)
           .join("");
 
     }
