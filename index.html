@@ -517,6 +517,80 @@
     }
 
 
+    /* ==============================
+       CARRUSEL HORIZONTAL (SHOP)
+
+       Solo se usa en la tienda
+       principal (Remeras / Pantalones).
+       Zera Art sigue usando la grilla
+       ".products" de siempre, sin
+       cambios.
+    ============================== */
+
+    .carousel {
+
+      display:
+        flex;
+
+      gap:
+        24px;
+
+      overflow-x:
+        auto;
+
+      scroll-snap-type:
+        x mandatory;
+
+      padding-bottom:
+        20px;
+
+      -webkit-overflow-scrolling:
+        touch;
+
+      scrollbar-width:
+        thin;
+
+    }
+
+
+    .carousel .product {
+
+      flex:
+        0 0 auto;
+
+      width:
+        340px;
+
+      scroll-snap-align:
+        start;
+
+    }
+
+
+    .carousel::-webkit-scrollbar {
+
+      height:
+        6px;
+
+    }
+
+
+    .carousel::-webkit-scrollbar-thumb {
+
+      background:
+        #333;
+
+    }
+
+
+    .carousel::-webkit-scrollbar-track {
+
+      background:
+        transparent;
+
+    }
+
+
     .product {
 
       background:
@@ -650,6 +724,25 @@
 
       aspect-ratio:
         4 / 3;
+
+    }
+
+
+    /* Si la tarjeta del shop además
+       tiene flip (frente/espalda),
+       le damos una altura fija en
+       vez de "auto", porque las
+       imágenes del flip van con
+       position:absolute y no pueden
+       definir la altura solas. */
+
+    .product-image.shop-image.has-flip {
+
+      height:
+        340px;
+
+      aspect-ratio:
+        unset;
 
     }
 
@@ -1460,6 +1553,14 @@
 
       }
 
+
+      .carousel .product {
+
+        width:
+          280px;
+
+      }
+
     }
 
 
@@ -1478,6 +1579,14 @@
 
         grid-template-columns:
           1fr;
+
+      }
+
+
+      .carousel .product {
+
+        width:
+          82vw;
 
       }
 
@@ -1688,7 +1797,7 @@
       </h3>
 
       <div
-        class="products"
+        class="carousel"
         id="productsGridRemeras"
       >
       </div>
@@ -1699,7 +1808,7 @@
       </h3>
 
       <div
-        class="products"
+        class="carousel"
         id="productsGridPantalones"
       >
       </div>
@@ -1975,136 +2084,189 @@
 
     const PRODUCTS = [
 
-      {
-        name: "Remera Colmillo",
-        image: "remera-dientes.png",
-        category: "remera"
-      },
-
-      {
-        name: "Remera Iris",
-        image: "remera-ojo.png",
-        category: "remera"
-      },
+      /* ===== REMERAS BLANCAS ===== */
 
       {
         name: "Remera Éxodo Blanca",
-        image: "remera-caida-blanca.png",
-        category: "remera"
-      },
-
-      {
-        name: "Remera Éxodo Negra",
-        image: "remera-caida-negra.png",
-        category: "remera"
+        front: "remera-exodo-blanca-frente.png",
+        back: "remera-exodo-blanca-espalda.png",
+        category: "remera",
+        color: "blanca"
       },
 
       {
         name: "Remera Vínculo",
-        image: "remera-abrazo-blanca.png",
-        category: "remera"
-      },
-
-      {
-        name: "Remera Gatillo Blanca",
-        image: "remera-pistola-blanca.png",
-        category: "remera"
-      },
-
-      {
-        name: "Remera Gatillo Negra",
-        image: "remera-pistola-negra.png",
-        category: "remera"
-      },
-
-      {
-        name: "Remera Devoción Blanca",
-        image: "remera-rosario-blanca.png",
-        category: "remera"
-      },
-
-      {
-        name: "Remera Devoción Negra",
-        image: "remera-rosario-negra.png",
-        category: "remera"
+        front: "remera-vinculo-frente.png",
+        back: "remera-vinculo-espalda.png",
+        category: "remera",
+        color: "blanca"
       },
 
       {
         name: "Remera Serafín Blanca",
-        image: "remera-angeles-blanca.png",
-        category: "remera"
-      },
-
-      {
-        name: "Remera Serafín Negra",
-        image: "remera-angeles-negra.png",
-        category: "remera"
+        front: "remera-serafin-blanca-frente.png",
+        back: "remera-serafin-blanca-espalda.png",
+        category: "remera",
+        color: "blanca"
       },
 
       {
         name: "Remera Letanía Blanca",
-        image: "remera-plegaria-blanca.png",
-        category: "remera"
-      },
-
-      {
-        name: "Remera Letanía Negra",
-        image: "remera-plegaria-negra.png",
-        category: "remera"
+        front: "remera-letania-blanca-frente.png",
+        back: "remera-letania-blanca-espalda.png",
+        category: "remera",
+        color: "blanca"
       },
 
       {
         name: "Remera Anatomía Blanca",
-        image: "remera-rayosx-blanca.png",
-        category: "remera"
-      },
-
-      {
-        name: "Remera Anatomía Negra",
-        image: "remera-rayosx-negra.png",
-        category: "remera"
+        front: "remera-anatomia-blanca-frente.png",
+        back: "remera-anatomia-blanca-espalda.png",
+        category: "remera",
+        color: "blanca"
       },
 
       {
         name: "Remera Génesis Blanca",
-        image: "remera-creacion-blanca.png",
-        category: "remera"
+        front: "remera-genesis-blanca-frente.png",
+        back: "remera-genesis-blanca-espalda.png",
+        category: "remera",
+        color: "blanca"
+      },
+
+      {
+        name: "Remera Devoción Blanca",
+        front: "remera-rosario-blanca.png",
+        category: "remera",
+        color: "blanca"
+      },
+
+      {
+        name: "Remera Gatillo Blanca",
+        front: "remera-gatillo-blanca-frente.png",
+        back: "remera-gatillo-blanca-espalda.png",
+        category: "remera",
+        color: "blanca"
+      },
+
+
+      /* ===== REMERAS NEGRAS ===== */
+
+      {
+        name: "Remera Colmillo",
+        front: "remera-colmillo-frente.png",
+        back: "remera-colmillo-espalda.png",
+        category: "remera",
+        color: "negra"
+      },
+
+      {
+        name: "Remera Iris",
+        front: "remera-iris-frente.png",
+        back: "remera-iris-espalda.png",
+        category: "remera",
+        color: "negra"
+      },
+
+      {
+        name: "Remera Éxodo Negra",
+        front: "remera-exodo-negra-frente.png",
+        back: "remera-exodo-negra-espalda.png",
+        category: "remera",
+        color: "negra"
+      },
+
+      {
+        name: "Remera Serafín Negra",
+        front: "remera-serafin-negra-frente.png",
+        back: "remera-serafin-negra-espalda.png",
+        category: "remera",
+        color: "negra"
+      },
+
+      {
+        name: "Remera Letanía Negra",
+        front: "remera-letania-negra-frente.png",
+        back: "remera-letania-negra-espalda.png",
+        category: "remera",
+        color: "negra"
+      },
+
+      {
+        name: "Remera Anatomía Negra",
+        front: "remera-anatomia-negra-frente.png",
+        back: "remera-anatomia-negra-espalda.png",
+        category: "remera",
+        color: "negra"
       },
 
       {
         name: "Remera Génesis Negra",
-        image: "remera-creacion-negra.png",
-        category: "remera"
+        front: "remera-genesis-negra-frente.png",
+        back: "remera-genesis-negra-espalda.png",
+        category: "remera",
+        color: "negra"
       },
+
+      {
+        name: "Remera Devoción Negra",
+        front: "remera-rosario-negra.png",
+        category: "remera",
+        color: "negra"
+      },
+
+      {
+        name: "Remera Gatillo Negra",
+        front: "remera-gatillo-negra-frente.png",
+        back: "remera-gatillo-negra-espalda.png",
+        category: "remera",
+        color: "negra"
+      },
+
+
+      /* ===== PANTALONES BLANCOS ===== */
 
       {
         name: "Jogger Eclipse Blanco",
-        image: "jogger-blanco.png",
-        category: "pantalon"
-      },
-
-      {
-        name: "Jogger Eclipse Negro",
-        image: "jogger-negro.png",
-        category: "pantalon"
+        front: "jogger-eclipse-blanco-frente.png",
+        back: "jogger-eclipse-blanco-espalda.png",
+        category: "pantalon",
+        color: "blanca"
       },
 
       {
         name: "Jogger Carmín Blanco",
-        image: "jogger-sangre-blanco.png",
-        category: "pantalon"
-      },
-
-      {
-        name: "Jogger Carmín Negro",
-        image: "jogger-sangre-negro.png",
-        category: "pantalon"
+        front: "jogger-carmin-blanco-frente.png",
+        back: "jogger-carmin-blanco-espalda.png",
+        category: "pantalon",
+        color: "blanca"
       },
 
       {
         name: "Jogger Pétalo Blanco",
-        image: "jogger-rosa-blanco.jpg",
-        category: "pantalon"
+        front: "jogger-petalo-blanco-frente.png",
+        back: "jogger-petalo-blanco-espalda.png",
+        category: "pantalon",
+        color: "blanca"
+      },
+
+
+      /* ===== PANTALONES NEGROS ===== */
+
+      {
+        name: "Jogger Eclipse Negro",
+        front: "jogger-eclipse-negro-frente.png",
+        back: "jogger-eclipse-negro-espalda.png",
+        category: "pantalon",
+        color: "negra"
+      },
+
+      {
+        name: "Jogger Carmín Negro",
+        front: "jogger-carmin-negro-frente.png",
+        back: "jogger-carmin-negro-espalda.png",
+        category: "pantalon",
+        color: "negra"
       }
 
     ];
@@ -2113,8 +2275,11 @@
 
     /*
       Dibuja las tarjetas de producto,
-      separadas en dos grillas: una
-      de remeras y otra de pantalones.
+      separadas en dos carruseles
+      horizontales: uno de remeras y
+      otro de pantalones. Si el producto
+      tiene "back", se puede dar vuelta
+      para ver el frente y la espalda.
     */
 
     function renderProducts() {
@@ -2124,12 +2289,32 @@
         const index =
           PRODUCTS.indexOf(product);
 
+        const hasBack =
+          !!product.back;
+
+        const imageHtml =
+          hasBack ?
+
+            (
+              '<div class="flip-wrap">' +
+                '<img class="flip-front" src="' + product.front + '" alt="ZERA ' + product.name + '">' +
+                '<img class="flip-back" src="' + product.back + '" alt="ZERA ' + product.name + ' espalda">' +
+                '<button class="flip-btn" onclick="toggleFlip(event, this)" aria-label="Dar vuelta a la remera">Dar vuelta</button>' +
+              '</div>'
+            )
+
+            :
+
+            (
+              '<img src="' + product.front + '" alt="ZERA ' + product.name + '">'
+            );
+
         return (
           '<div class="product" onclick="openModal(' +
           index +
           ')">' +
-            '<div class="product-image shop-image">' +
-              '<img src="' + product.image + '" alt="ZERA ' + product.name + '">' +
+            '<div class="product-image shop-image' + (hasBack ? ' has-flip' : '') + '">' +
+              imageHtml +
             '</div>' +
             '<div class="product-info">' +
               '<h3>' + product.name + '</h3>' +
