@@ -660,7 +660,7 @@
         100%;
 
       object-fit:
-        cover;
+        contain;
 
       display:
         block;
@@ -715,15 +715,38 @@
     /* Imagen horizontal, solo para
        las tarjetas del shop (no
        para Zera Art, que queda
-       con su formato actual). */
+       con su formato actual).
 
-    .product-image.shop-image {
+       Las remeras (fotos frente/espalda
+       tipo flat-lay) son en su mayoría
+       más anchas que altas, y los
+       joggers son angostos y altos.
+       Por eso cada categoría tiene su
+       propia proporción de recuadro,
+       calculada a partir de las fotos
+       reales que subiste. Junto con
+       object-fit: contain (ver abajo),
+       ninguna imagen se recorta, sea
+       cual sea su tamaño real. */
+
+    .product-image.shop-image.cat-remera {
 
       height:
         auto;
 
       aspect-ratio:
-        4 / 3;
+        3 / 2;
+
+    }
+
+
+    .product-image.shop-image.cat-pantalon {
+
+      height:
+        auto;
+
+      aspect-ratio:
+        9 / 16;
 
     }
 
@@ -738,11 +761,24 @@
 
     .product-image.shop-image.has-flip {
 
-      height:
-        340px;
-
       aspect-ratio:
         unset;
+
+    }
+
+
+    .product-image.shop-image.cat-remera.has-flip {
+
+      height:
+        240px;
+
+    }
+
+
+    .product-image.shop-image.cat-pantalon.has-flip {
+
+      height:
+        600px;
 
     }
 
@@ -1125,7 +1161,7 @@
         100%;
 
       object-fit:
-        cover;
+        contain;
 
       transition:
         opacity 0.4s ease;
@@ -1561,6 +1597,22 @@
 
       }
 
+
+      .product-image.shop-image.cat-remera.has-flip {
+
+        height:
+          200px;
+
+      }
+
+
+      .product-image.shop-image.cat-pantalon.has-flip {
+
+        height:
+          495px;
+
+      }
+
     }
 
 
@@ -1628,13 +1680,29 @@
       }
 
 
+      .product-image.shop-image.cat-remera.has-flip {
+
+        height:
+          230px;
+
+      }
+
+
+      .product-image.shop-image.cat-pantalon.has-flip {
+
+        height:
+          580px;
+
+      }
+
+
       .flip-wrap img {
 
         height:
           100%;
 
         object-fit:
-          cover;
+          contain;
 
       }
 
@@ -2313,7 +2381,7 @@
           '<div class="product" onclick="openModal(' +
           index +
           ')">' +
-            '<div class="product-image shop-image' + (hasBack ? ' has-flip' : '') + '">' +
+            '<div class="product-image shop-image cat-' + product.category + (hasBack ? ' has-flip' : '') + '">' +
               imageHtml +
             '</div>' +
             '<div class="product-info">' +
