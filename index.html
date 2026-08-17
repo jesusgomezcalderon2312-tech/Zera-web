@@ -748,6 +748,16 @@
       aspect-ratio:
         5 / 8;
 
+      /* Las fotos de los pantalones
+         vienen con fondo blanco, así
+         que el recuadro también va
+         blanco: así la foto encaja
+         perfecto y no queda un borde
+         oscuro raro alrededor. */
+
+      background:
+        #f4f4f4;
+
     }
 
 
@@ -792,6 +802,32 @@
 
       height:
         auto;
+
+      background:
+        #f4f4f4;
+
+    }
+
+
+    /* Un poco de aire alrededor de la
+       foto del pantalón para que no
+       quede pegada a los bordes del
+       recuadro. Va en el recuadro
+       (product-image), no en el
+       flip-wrap: las fotos del flip
+       usan position:absolute y toman
+       como referencia el borde del
+       padding del contenedor, así que
+       el padding tiene que estar acá
+       para que realmente las achique. */
+
+    .product-image.shop-image.cat-pantalon {
+
+      padding:
+        14px;
+
+      box-sizing:
+        border-box;
 
     }
 
@@ -1190,7 +1226,19 @@
     }
 
 
-    .flip-wrap:hover .flip-front,
+    /* Antes esto también se activaba
+       con ":hover", pero eso generaba
+       el bug de "tocás para dar vuelta
+       y no vuelve": mientras el mouse
+       (o el dedo, en pantallas táctiles)
+       seguía sobre la prenda, el hover
+       le ganaba al botón y la imagen
+       quedaba trabada del lado espalda.
+       Ahora el único que manda es el
+       botón "Dar vuelta" (clase
+       .flipped), así funciona siempre
+       igual en PC y en celular. */
+
     .flip-wrap.flipped .flip-front {
 
       opacity:
@@ -1199,7 +1247,6 @@
     }
 
 
-    .flip-wrap:hover .flip-back,
     .flip-wrap.flipped .flip-back {
 
       opacity:
