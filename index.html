@@ -746,7 +746,7 @@
         auto;
 
       aspect-ratio:
-        9 / 16;
+        5 / 8;
 
     }
 
@@ -775,10 +775,23 @@
     }
 
 
+    /* Todas las fotos de joggers ya
+       vienen recortadas y centradas
+       con la misma proporción (5:8),
+       así que el recuadro puede usar
+       esa proporción exacta en vez de
+       una altura fija: se adapta solo
+       al ancho de la tarjeta y ninguna
+       queda más chica o más grande
+       que las demás. */
+
     .product-image.shop-image.cat-pantalon.has-flip {
 
+      aspect-ratio:
+        5 / 8;
+
       height:
-        600px;
+        auto;
 
     }
 
@@ -1606,12 +1619,9 @@
       }
 
 
-      .product-image.shop-image.cat-pantalon.has-flip {
-
-        height:
-          495px;
-
-      }
+      /* Se mantiene la proporción 5:8
+         definida arriba; no necesita
+         una altura fija propia acá. */
 
     }
 
@@ -1690,8 +1700,11 @@
 
       .product-image.shop-image.cat-pantalon.has-flip {
 
+        aspect-ratio:
+          5 / 8;
+
         height:
-          580px;
+          auto;
 
       }
 
